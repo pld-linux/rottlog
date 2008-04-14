@@ -10,9 +10,10 @@ URL:		http://www.gnu.org/software/rottlog/
 Source0:	http://download.savannah.gnu.org/releases/rottlog/%{name}-%{version}%{subver}.tar.gz
 # Source0-md5:	500670496f05b9c51d35644bb9376757
 Patch0:		%{name}-bashism.patch
+Patch1:		%{name}-DESTDIR.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
-Patch1:		%{name}-DESTDIR.patch
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
