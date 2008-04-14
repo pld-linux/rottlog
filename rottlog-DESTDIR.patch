@@ -1,0 +1,33 @@
+--- rottlog-0.70beta3/Makefile.am~	2005-05-09 23:30:06.000000000 +0300
++++ rottlog-0.70beta3/Makefile.am	2008-04-14 15:54:59.243102632 +0300
+@@ -71,18 +71,18 @@
+ 
+ 
+ install-data-local:
+-	mkdir -m $(ETC_MODE) -p $(ROTT_ETCDIR)
+-	mkdir -p $(ROTT_STATDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/sample_rc $(ROTT_ETCDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/sample_custom $(ROTT_ETCDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/sample_monthly $(ROTT_ETCDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/sample_rc_logrotate $(ROTT_ETCDIR)
++	mkdir -m $(ETC_MODE) -p $(DESTDIR)$(ROTT_ETCDIR)
++	mkdir -p $(DESTDIR)$(ROTT_STATDIR)
++	$(install_sh_DATA) $(srcdir)/rc/sample_rc $(DESTDIR)$(ROTT_ETCDIR)
++	$(install_sh_DATA) $(srcdir)/rc/sample_custom $(DESTDIR)$(ROTT_ETCDIR)
++	$(install_sh_DATA) $(srcdir)/rc/sample_monthly $(DESTDIR)$(ROTT_ETCDIR)
++	$(install_sh_DATA) $(srcdir)/rc/sample_rc_logrotate $(DESTDIR)$(ROTT_ETCDIR)
+ 
+ install-exec-hook:
+-	$(INSTALL_SCRIPT) $(srcdir)/src/rottlog $(bindir)/rottlog
+-	$(INSTALL_SCRIPT) $(srcdir)/src/virottrc $(bindir)/virottrc
+-	$(LN_S) -f $(bindir)/virottrc $(bindir)/virottmonth
+-	$(LN_S) -f $(bindir)/virottrc $(bindir)/virottday
+-	$(LN_S) -f $(bindir)/virottrc $(bindir)/virottweek
+-	$(LN_S) -f $(bindir)/virottrc $(bindir)/virottcustom
++	$(INSTALL_SCRIPT) $(srcdir)/src/rottlog $(DESTDIR)$(bindir)/rottlog
++	$(INSTALL_SCRIPT) $(srcdir)/src/virottrc $(DESTDIR)$(bindir)/virottrc
++	$(LN_S) -f $(bindir)/virottrc $(DESTDIR)$(bindir)/virottmonth
++	$(LN_S) -f $(bindir)/virottrc $(DESTDIR)$(bindir)/virottday
++	$(LN_S) -f $(bindir)/virottrc $(DESTDIR)$(bindir)/virottweek
++	$(LN_S) -f $(bindir)/virottrc $(DESTDIR)$(bindir)/virottcustom
+ 

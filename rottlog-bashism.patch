@@ -1,0 +1,17 @@
+--- rottlog-0.70beta3/configure.ac~	2005-05-09 23:30:06.000000000 +0300
++++ rottlog-0.70beta3/configure.ac	2008-04-14 15:47:59.238951107 +0300
+@@ -174,10 +174,10 @@
+ fi
+ 
+ AC_MSG_NOTICE([Escaping variables due to sed weakness...])
+-esc_ETCDIR="${ROTT_ETCDIR//\//\\/}"
+-esc_STATDIR="${ROTT_STATDIR//\//\\/}"
+-esc_TMPDIR="${BASE_TMP_DIR//\//\\/}"
+-esc_LOCKFILE="${LOCKFILE//\//\\/}"
++esc_ETCDIR=$(echo "${ROTT_ETCDIR}" | sed -e 's,/,\\/,g')
++esc_STATDIR=$(echo "${ROTT_STATDIR}" | sed -e 's,/,\\/,g')
++esc_TMPDIR=$(echo "${BASE_TMP_DIR}" | sed -e 's,/,\\/,g')
++esc_LOCKFILE=$(echo "${LOCKFILE}" | sed -e 's,/,\\/,g')
+ AC_SUBST(esc_ETCDIR,[$esc_ETCDIR])
+ AC_SUBST(esc_STATDIR,[$esc_STATDIR])
+ AC_SUBST(esc_TMPDIR,[$esc_TMPDIR])
